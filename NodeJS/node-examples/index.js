@@ -15,7 +15,7 @@ function solveRect(l,b) {
         }
     });
     console.log("This statement after the call to rect()");
-};
+};//FUnction ends here
 
 solveRect(4,3);
 solveRect(8,3);
