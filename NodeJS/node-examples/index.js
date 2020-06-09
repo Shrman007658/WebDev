@@ -1,19 +1,22 @@
 var rect=require('./rectangle');
-var square=
-{
-    perimeter:(side) => 4*side,
-    area:(side) => side*side 
-}
 
-function calcrect(l,b)
-{
-    if(l>0 && b>0)
-    {console.log("Solving rectangle perimeter"+rect.perimeter(l,b));
-    console.log("Solving rectangle area"+rect.area(l,b));}
-    else
-    console.log("Negative values? really bro? ");
-}
+function solveRect(l,b) {
+    console.log("Solving for rectangle with l = "
+                + l + " and b = " + b);
+    rect(l,b, (err,rectangle) => {
+        if (err) {
+	        console.log("ERROR: ", err.message);
+	    }
+        else {
+            console.log("The area of the rectangle of dimensions l = "
+                + l + " and b = " + b + " is " + rectangle.area());
+            console.log("The perimeter of the rectangle of dimensions l = "
+                + l + " and b = " + b + " is " + rectangle.perimeter());
+        }
+    });
+    console.log("This statement after the call to rect()");
+};
 
-calcrect(2,4);
-calcrect(-1,3);
-calcrect(17,13);
+solveRect(4,3);
+solveRect(8,3);
+solveRect(-3,-2);
